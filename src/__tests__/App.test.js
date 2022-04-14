@@ -80,10 +80,10 @@ describe('Testing <Todo/> functionality', () => {
     const todos= render(<App />);
 
     // RTL: https://testing-library.com/docs/queries/byrole
-    const buttonErase = screen.getAllByTestId('erase');
+    const buttonDelete = screen.getAllByTestId('delete');
     const counter = todos.getByTestId('todoCount');
     
-    fireEvent.click(buttonErase[2]);
+    fireEvent.click(buttonDelete[2]);
     
     // RTL: https://testing-library.com/docs/queries/bytext
     await expect(counter.textContent).toBe('2 todos');
@@ -95,12 +95,12 @@ describe('Testing <Todo/> functionality', () => {
     const todos= render(<App />);
 
     // RTL: https://testing-library.com/docs/queries/byrole
-    const buttonErase = screen.getAllByTestId('mark');
+    const buttonDelete = screen.getAllByTestId('Jane');
     
-    fireEvent.click(buttonErase[2]);
+    fireEvent.click(buttonDelete[2]);
     
     // RTL: https://testing-library.com/docs/queries/bytext
-    await expect(buttonErase[2].textContent).toBe("Not done");
+    await expect(buttonDelete[2].textContent).toBe("Not done");
   
   });
 
